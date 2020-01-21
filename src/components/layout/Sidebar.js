@@ -1,9 +1,12 @@
 import React from 'react';
+import NuevoProyecto from '../proyecetos/NuevoProyecto';
 
 const Sidebar = () => {
     return ( 
         <aside>
-            <h1>MERRN<span>Tasks</span></h1>
+            <h1>MERN<span>Tasks</span></h1>
+
+            <NuevoProyecto />
 
             <div className="proyectos">
                 <h2>Tus Proyectos</h2>
