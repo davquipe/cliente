@@ -5,7 +5,7 @@ const NuevoProyecto = () => {
 
     // Obtener el state del formulario
     const proyectosContext = useContext(proyecetoContext);
-    const { formulario } = proyectosContext;
+    const { formulario, mostrarFormulario } = proyectosContext;
 
 
     // State para proyeceto
@@ -36,11 +36,18 @@ const NuevoProyecto = () => {
         // Reiniciar el formulario
     }
 
+    // Mostrar el Formulario
+    const onClickFormulario = () => {
+        mostrarFormulario();
+    }
+
+
     return ( 
         <Fragment>
         <button
             type="button"
             className="btn btn-block btn-primario"
+            onClick={() => mostrarFormulario() }
         >Nuevo Proyecto</button>
 
         { formulario ? 
@@ -55,7 +62,7 @@ const NuevoProyecto = () => {
                             placeholder="Nombre de Proyecto"
                             name="nombre"
                             value={nombre}
-                            onChange={onChangeProyecto}
+                            onChange={ onClickFormulario }
                             />
 
                         <input 
