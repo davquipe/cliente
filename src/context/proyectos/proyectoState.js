@@ -1,11 +1,28 @@
 import React from 'react';
 
 import proyectoContext from './proyectoContext';
+import proyectoReducer from './proyectoReducer';
+import { useReducer } from 'react';
 
-const proyectoState = props => {
+const ProyectoState = props => {
     const initialState = {
-        nuevoProyecto: false
+        formulario : false
     }
+
+    // Dispath para ejecutar las acciones
+    const [state, dispatch] = useReducer(proyectoReducer, initialState)
+
+    // Serrie de funcoines para el CRUD
+
+    return (
+        <proyectoContext.Provider
+            value={{
+                formulario: state.formulario
+            }}
+        >
+            {props.children}
+        </proyectoContext.Provider>
+    )
 }
 
-export default proyectoState;
+export default ProyectoState;
